@@ -4,11 +4,11 @@ def output_formatter(results):
     out = []
     for result in results:
         res = {
-            "id": result[0],
-            "name": result[1],
-            "summary": result[2],
-            "description": result[3],
-            "is_done": result[4]
+            "id":result[0],
+            "name":result[1],
+            "summary":result[2],
+            "description":result[3],
+            "is_done":result[4]
         }
         out.append(res)
     return out
@@ -20,9 +20,9 @@ def scan():
     cursor.close()
     return output_formatter(results)
 
-def select_by_id():
+def select_by_id(task_id):
     conn = get_db()
-    cursor = conn.execute("SELECT * FROM task WHERE id=?",(task_id))
+    cursor = conn.execute("SELECT * FROM task WHERE id=?",(task_id,))
     results = cursor.fetchall()
     cursor.close()
     if results: 

@@ -9,18 +9,18 @@ app = Flask(__name__)
 #HTTP GET METHODS 
 @app.get("/tasks")
 def get_all_tasks():
-    task_list = task.scan();
+    task_list = task.scan()
     out = {
         "tasks": task_list, 
         "ok":True
     }
-    return out;
+    return out
 
 @app.get("/tasks/<int:pk>/")
 def get_task_single_task(pk):
     single_task = task.select_by_id(pk)
     if single_task:
-        out - {
+        out = {
             "task":single_task, 
             "ok":True
         }
